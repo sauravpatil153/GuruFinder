@@ -1,2 +1,0 @@
-# GuruFinder
-## Software Requirement Specification
