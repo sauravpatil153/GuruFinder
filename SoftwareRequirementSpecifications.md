@@ -41,7 +41,7 @@ Tutors:
 - View/Access Courses: Tutor will be able to view/update/remove posted courses. 
 - View Ratings: Tutor can view his/her ratings.
 	
-## NonFunctional Requirement:
+## Non-Functional Requirement:
 
 ### Security
 Registered Customer will allowed to place an order.	
