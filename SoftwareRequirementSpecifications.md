@@ -7,7 +7,7 @@ System Requirement Specification Document
 System Requirement Specification for GuruFinder
 
 ## Team: 
-Direct Customer,Indirect Customer, Architect,Business Analyst,	Quality Assurance Team, System Analyst
+Direct Customer, Indirect Customer, Architect, Business Analyst, Quality Assurance Team, System Analyst
 
 ## Objective (Purpose):
 GuruFinder is an online platform to assist students/parents to find a private tutor in both remote and physical mode or to find a online interactive class according to comfort and budget. It also helps indiviuals who are looking to offer tutoring services.
