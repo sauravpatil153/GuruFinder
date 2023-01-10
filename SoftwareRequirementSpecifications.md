@@ -13,7 +13,7 @@ Direct Customer,Indirect Customer, Architect,Business Analyst,	Quality Assurance
 GuruFinder is an online platform to assist students/parents to find a private tutor in both remote and physical mode or to find a online interactive class according to comfort and budget. It also helps indiviuals who are looking to offer tutoring services.
 
 ## Scope:
-GuruFinder will allow students/parents to outlook and subscribe to various courses. Tutors will be able to offer several courses according to their proficiency. Admin will be able to manage students and tutors and to approve registration of new tutors. The System  will be generate live Business Operations statistics trends through customized dashboard for stakeholders.
+GuruFinder will allow students/parents to outlook and subscribe to various courses. Tutors will be able to offer several courses according to their proficiency. Admin will be able to manage students and tutors and to approve registration of new tutors. The System  will generate live Business Operations statistics trends through customized dashboard for stakeholders.
 
 ## Definitions:
 	
