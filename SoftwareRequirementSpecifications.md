@@ -4,7 +4,7 @@
 System Requirement Specification Document
 
 ## Title:
-System Reqruiement Spefication for GuruFinder
+System Requirement Specification for GuruFinder
 
 ## Team: 
 Direct Customer,Indirect Customer, Architect,Business Analyst,	Quality Assurance Team, System Analyst
@@ -19,35 +19,54 @@ GuruFinder will allow students/parents to outlook and subscribe to various cours
 	
 
 ## Functional Requirements:
+Admin:
+- Login: Admin can login with usage of designated credentials.
+- Manage Tutor: Admin can upload/delete/approve the records of tutors and parents/students.
+- Manage courses: Admin can add/delete courses inside the portal.
+- Dashboard: Admin will be able to view live statistics of tutors,students and courses enrolled.
 
+Parents/Students:
+- Registration: Parents/Students can register and obtain credentials.
+- Login: Parents/Students can login with usage of designated credentials.
+- View/Subscribe: Parents/Students can view or subscribe for courses.
+- Mode of Learning: Parents/Students can choose any mode of learning while opting for courses such as In-person tutoring,
+  Online Live in-person tutoring or Online Live classes as per availaibility.
+- Rate Tutor: Parents/Students can rate tutor upon subscription of courses.
 
+Tutors:
+- Registration: Tutor can register and obtain credentials.
+- Login: Tutor can login with usage of designated credentials.
+- Add Courses: Tutor will be able to add courses respective to specific domain.
+- Manage Reservation Requests: Tutors can approve/reject the reservation requests of parents/students.
+- View/Access Courses: Tutor will be able to view/update/remove posted courses. 
+- View Ratings: Tutor can view his/her ratings.
 	
 ## NonFunctional Requirement:
 
 ### Security
 Registered Customer will allowed to place an order.	
-Each stakeholder will be to access system  through authentication process.
-System will provide access to  the content , operations using Role based security (Authorization) (Permissions based on Role)
-Using SSL in all transactions  which will be performed stakeholder. It would protect confidential information shared by system to stake holder of Shared by stakeholder to system.
-System will automatically log of  all stakeholder after some time due to inactiveness.
-System will block operations for inactive  stakeholder and would redirect for authentication.
-System  will internally maintain secure communiction channel between Servers ( Web Servers, App Servers, databse Server)
+Each stakeholder will be to access system through authentication process.
+System will provide access to the content, operations using Role based security (Authorization) (Permissions based on Role)
+Using SSL in all transactions which will be performed stakeholder. It would protect confidential information shared by system to stake holder of Shared by stakeholder to system.
+System will automatically log of all stakeholder after some time due to inactiveness.
+System will block operations for inactive stakeholder and would redirect for authentication.
+System  will internally maintain secure communiction channel between Servers (Web Servers, App Servers, Database Server)
 Sensitive data will be always encrypted across communcation.
 User proper firewall to protect servers from out side fishing, velnerable attacks.
 
 
 ### Reliability
 The system will backup business data on regular basis and recover in short time duration to keep system operational
-Continous updates are matained , continous Adminstration is done to keep system operational.
-During peak hours system will maintain same user experaince by managing load balacning .
+Continous updates are maintained, continuous adminstration is done to keep system operational.
+During peak hours system will maintain same user experaince by managing load balancing.
 
 ### Availability
 Uptime:   24* 7  available  99.999%
 	
 ### Maintainability:
-A Commercial database software will be used to maintain System data Persistence.
+A Commercial database software will be used to maintain system data persistence.
 A readymade Web Server will be installed to host GuruFinder to management server capabilities.
-IT operations team will easily monitor and configure System using Adminstrative tools provided by Servers.
+IT operations team will easily monitor and configure System using Adminstrative tools provided by servers.
 Separate enviornment will be maintained for system for isolation in  production, testing, and development.
 
 ### Portablility:
