@@ -1,0 +1,18 @@
+package com.app.pojos;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tutor_qualifications")
+public class TutorQualifications {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "tutor_qualification_id")
+	private Long tutorQualificationId;
+	
+}
