@@ -1,12 +1,17 @@
 package com.app.pojos;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -40,6 +45,18 @@ public class Tutor {
 	private String summary;
 	@Column(name = "total_experience", nullable = false)
 	private Integer totalExperience;
+	
+	@OneToOne(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Address address;
+	
+	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<TutorQualifications> qualifications=new ArrayList<TutorQualifications>();
+	
+	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<TutorExperience> experiences=new ArrayList<TutorExperience>();
+	
+	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<CourseBrochure> courseBrochers=new ArrayList<CourseBrochure>();
 	
 	public Tutor() {
 		super();

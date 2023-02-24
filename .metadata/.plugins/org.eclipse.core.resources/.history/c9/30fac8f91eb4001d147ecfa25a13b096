@@ -28,8 +28,8 @@ public class TutorQualifications {
 	@Column(name = "degree_certicate", nullable = false)
 	private byte[] degreeCerticate;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "tutor_id")
+	@ManyToOne
+	@JoinColumn(name = "tutor_id", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Tutor tutor;
 	
 	public TutorQualifications() {

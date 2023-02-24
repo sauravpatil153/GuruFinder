@@ -2,7 +2,6 @@ package com.app.pojos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,64 +15,74 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "students")
-public class Student {
+@Table(name = "tutors")
+public class Tutor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "student_id")
-	private Long studentId;
+	@Column(name = "tutor_id")
+	private Long tutorId;
 	@Column(name = "first_name", length = 30, nullable = false)
 	private String firstName;
 	@Column(name = "last_name", length = 30, nullable = false)
 	private String lastName;
 	@Column(name = "mobile_no", length = 12, nullable = false)
 	private String mobileNo;
+	@Column(length = 10, nullable = false)
+	private String gender;
 	@Column(name = "email_id", length = 50, nullable = false, unique = true)
 	private String emailId;
 	@Column(length = 20, nullable = false)
 	private String password;
-	@Column(length = 10, nullable = false)
-	private String gender;
 	@Column(name = "profile_photo", nullable = false)
 	private byte[] profilePhoto;
 	@Column(name = "id_proof", nullable = false)
 	private byte[] idProof;
 	@Column(nullable = false)
 	private LocalDate dob;
+	@Column(length = 150, nullable = false)
+	private String tagline;
+	@Column(nullable = false)
+	private String summary;
+	@Column(name = "total_experience", nullable = false)
+	private Integer totalExperience;
 	
-	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Address address;
 	
-	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-	private StudentEducationalDetails details;
+	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<TutorQualifications> qualifications=new ArrayList<TutorQualifications>();
 	
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<CourseEnrollment> courseEnrollment=new ArrayList<CourseEnrollment>();
+	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<TutorExperience> experiences=new ArrayList<TutorExperience>();
 	
-	public Student() {
+	public Tutor() {
 		super();
 	}
 
-	public Student(String firstName, String lastName, String mobileNo, String emailId, String password,
-			String gender, byte[] profilePhoto, byte[] idProof, LocalDate dob) {
+	public Tutor(String firstName, String lastName, String mobileNo, String gender, String emailId, String password,
+			byte[] profilePhoto, byte[] idProof, LocalDate dob, String tagline, String summary,
+			Integer totalExperience) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.mobileNo = mobileNo;
+		this.gender = gender;
 		this.emailId = emailId;
 		this.password = password;
-		this.gender = gender;
 		this.profilePhoto = profilePhoto;
 		this.idProof = idProof;
 		this.dob = dob;
+		this.tagline = tagline;
+		this.summary = summary;
+		this.totalExperience = totalExperience;
 	}
 
-	public Long getStudentId() {
-		return studentId;
+	public Long getTutorId() {
+		return tutorId;
 	}
 
-	public void setStudentId(Long studentId) {
-		this.studentId = studentId;
+	public void setTutorId(Long tutorId) {
+		this.tutorId = tutorId;
 	}
 
 	public String getFirstName() {
@@ -100,6 +109,14 @@ public class Student {
 		this.mobileNo = mobileNo;
 	}
 
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	public String getEmailId() {
 		return emailId;
 	}
@@ -114,14 +131,6 @@ public class Student {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 
 	public byte[] getProfilePhoto() {
@@ -148,11 +157,28 @@ public class Student {
 		this.dob = dob;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName + ", mobileNo="
-				+ mobileNo + ", emailId=" + emailId + ", gender=" + gender + ", profilePhoto="
-				+ Arrays.toString(profilePhoto) + ", idProof=" + Arrays.toString(idProof) + ", dob=" + dob + "]";
+	public String getTagline() {
+		return tagline;
+	}
+
+	public void setTagline(String tagline) {
+		this.tagline = tagline;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public Integer getTotalExperience() {
+		return totalExperience;
+	}
+
+	public void setTotalExperience(Integer totalExperience) {
+		this.totalExperience = totalExperience;
 	}
 	
 }

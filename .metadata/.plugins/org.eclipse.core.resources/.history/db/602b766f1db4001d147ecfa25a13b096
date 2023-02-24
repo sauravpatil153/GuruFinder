@@ -25,7 +25,8 @@ public class StudentEducationalDetails {
 	
 	@OneToOne
 	@JoinColumn(name = "student_id")
-	private Student student;
+	private Student studentId;
+	
 	
 	public StudentEducationalDetails() {
 		super();

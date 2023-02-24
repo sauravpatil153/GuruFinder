@@ -47,8 +47,8 @@ public class Student {
 	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
 	private StudentEducationalDetails details;
 	
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<CourseEnrollment> courseEnrollment=new ArrayList<CourseEnrollment>();
+	@OneToMany(mappedBy = "stduent", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<CourseBrochure> courseBrochers=new ArrayList<CourseBrochure>();
 	
 	public Student() {
 		super();

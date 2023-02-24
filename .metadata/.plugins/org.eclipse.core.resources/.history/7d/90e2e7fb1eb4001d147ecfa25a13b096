@@ -1,6 +1,5 @@
 package com.app.pojos;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +27,7 @@ public class TutorQualifications {
 	@Column(name = "degree_certicate", nullable = false)
 	private byte[] degreeCerticate;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "tutor_id")
 	private Tutor tutor;
 	

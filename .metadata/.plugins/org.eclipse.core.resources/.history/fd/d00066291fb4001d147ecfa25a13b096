@@ -33,12 +33,12 @@ public class Address {
 	//1-->1 uni-directional
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "student_id")
-	private Student student;
+	private Student studentId;
 	
 	//1-->1 uni-directional
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "tutor_id")
-	private Tutor tutor;
+	private Tutor tutorId;
 	
 	public Address() {
 		super();
