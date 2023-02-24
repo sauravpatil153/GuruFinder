@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,6 +26,7 @@ public class TutorQualifications {
 	private String board;
 	@Column(name = "passing_year",nullable = false)
 	private Integer passingYear;
+	@Lob
 	@Column(name = "degree_certicate", nullable = false)
 	private byte[] degreeCerticate;
 	

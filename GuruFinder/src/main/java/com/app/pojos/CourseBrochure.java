@@ -1,16 +1,22 @@
 package com.app.pojos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
+@IdClass(CourseBrochureId.class)
 @Table(name = "course_brochures")
 public class CourseBrochure {
 	@Id
@@ -29,10 +35,13 @@ public class CourseBrochure {
 	private Double fees;
 	@Column(length = 10, nullable = false)
 	private String mode;
-	
+	@Id
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "tutor_id")
 	private Tutor tutor;
+	
+	@OneToMany(mappedBy = "courseBrochure", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<CourseEnrollment> courseEnrollment=new ArrayList<CourseEnrollment>();
 	
 	public CourseBrochure() {
 		super();

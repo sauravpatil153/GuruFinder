@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,6 +24,7 @@ public class TutorExperience {
 	private String organisationName;
 	@Column(length = 30, nullable = false)
 	private String field;
+	@Lob
 	@Column(name = "experience_certicate", nullable = false)
 	private byte[] experienceCerticate;
 	

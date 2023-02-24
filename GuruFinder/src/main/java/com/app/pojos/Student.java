@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,8 +35,10 @@ public class Student {
 	private String password;
 	@Column(length = 10, nullable = false)
 	private String gender;
+	@Lob
 	@Column(name = "profile_photo", nullable = false)
 	private byte[] profilePhoto;
+	@Lob
 	@Column(name = "id_proof", nullable = false)
 	private byte[] idProof;
 	@Column(nullable = false)
