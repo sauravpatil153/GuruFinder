@@ -3,11 +3,13 @@ package com.app.pojos;
 import java.time.LocalDate;
 import java.util.Arrays;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -35,6 +37,9 @@ public class Student {
 	private byte[] idProof;
 	@Column(nullable = false)
 	private LocalDate dob;
+	
+	@OneToOne(mappedBy = "studentId", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Address address;
 	
 	public Student() {
 		super();

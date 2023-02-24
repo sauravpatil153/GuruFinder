@@ -1,10 +1,13 @@
 package com.app.pojos;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +29,16 @@ public class Address {
 	private String state;
 	@Column(length = 20, nullable = false)
 	private String pincode;
+	
+	//1-->1 uni-directional
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "student_id")
+	private Student studentId;
+	
+	//1-->1 uni-directional
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "tutor_id")
+	private Tutor tutorId;
 	
 	public Address() {
 		super();
