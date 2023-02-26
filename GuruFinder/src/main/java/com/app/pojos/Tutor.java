@@ -24,24 +24,16 @@ import org.hibernate.envers.NotAudited;
 
 @Entity
 @Table(name = "tutors")
-@AuditTable(value = "tutor_verification")
 public class Tutor extends User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "tutor_id")
-	@Audited
 	private Long tutorId;
 	private String tagline;
 	@Column(nullable = false)
 	private String summary;
 	@Column(name = "total_experience", nullable = false)
 	private Integer totalExperience;
-	@Audited
-	@CreationTimestamp
-	@JoinColumn(name = "registration_date")
-	private LocalDate registrationDate;
-	@Audited
-	private String status;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "address_id")
@@ -60,6 +52,9 @@ public class Tutor extends User{
 	@JoinColumn(name = "login_id")
 	private Login login;
 	
+	@OneToOne(mappedBy = "tutor",cascade = CascadeType.ALL,orphanRemoval = true)
+	private TutorVerification verification;
+	
 	public Tutor() {
 		super();
 	}
@@ -70,13 +65,44 @@ public class Tutor extends User{
 		this.tagline = tagline;
 		this.summary = summary;
 		this.totalExperience = totalExperience;
-		this.status = status;
+	}
+	
+	public Long getTutorId() {
+		return tutorId;
+	}
+
+	public void setTutorId(Long tutorId) {
+		this.tutorId = tutorId;
+	}
+
+	public String getTagline() {
+		return tagline;
+	}
+
+	public void setTagline(String tagline) {
+		this.tagline = tagline;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public Integer getTotalExperience() {
+		return totalExperience;
+	}
+
+	public void setTotalExperience(Integer totalExperience) {
+		this.totalExperience = totalExperience;
 	}
 
 	@Override
 	public String toString() {
 		return super.toString()+ " Tutor [tagline=" + tagline + ", summary=" + summary + ", totalExperience=" + totalExperience
-				+ ", registrationDate=" + registrationDate + ", status=" + status + "]";
+				+ "]";
 	}
 
 }

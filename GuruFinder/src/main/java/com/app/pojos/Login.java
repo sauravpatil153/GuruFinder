@@ -3,6 +3,8 @@ package com.app.pojos;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,6 +22,8 @@ public class Login {
 	private String emailId;
 	@Column(length = 20, nullable = false)
 	private String password;
+	@Column(name="user_role", nullable = false, length=30)
+	@Enumerated(EnumType.STRING)
 	private UserRoles userRole;
 	
 	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)

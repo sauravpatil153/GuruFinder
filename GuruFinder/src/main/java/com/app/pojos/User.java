@@ -30,7 +30,8 @@ public class User{
 	private byte[] idProof;
 	@Column(nullable = false)
 	private LocalDate dob;
-	
+	@Column(name="isActive",nullable = false)
+	private boolean isActive;
 	public User() {
 		super();
 	}
@@ -47,6 +48,7 @@ public class User{
 		this.profilePhoto = profilePhoto;
 		this.idProof = idProof;
 		this.dob = dob;
+		this.isActive = true;
 	}
 
 	public String getFirstName() {
@@ -120,10 +122,20 @@ public class User{
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
+	
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 
 	@Override
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", mobileNo=" + mobileNo + ", emailId="
-				+ emailId + ", gender=" + gender + ", dob=" + dob + "]";
+				+ emailId + ", password=" + password + ", gender=" + gender + ", dob=" + dob + ", isActive=" + isActive
+				+ "]";
 	}
+	
 }
