@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "student_educational_details")
@@ -24,7 +25,7 @@ public class StudentEducationalDetails {
 	private String board;
 	
 	@OneToOne
-	@JoinColumn(name = "student_id")
+	@JoinColumn(name = "student_id",unique = true)
 	private Student student;
 	
 	public StudentEducationalDetails() {

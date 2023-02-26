@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "address")
@@ -30,14 +31,12 @@ public class Address {
 	@Column(length = 20, nullable = false)
 	private String pincode;
 	
-	//1-->1 uni-directional
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "student_id")
+	@JoinColumn(name = "student_id",unique = true)
 	private Student student;
 	
-	//1-->1 uni-directional
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "tutor_id")
+	@JoinColumn(name = "tutor_id",unique = true)
 	private Tutor tutor;
 	
 	public Address() {
