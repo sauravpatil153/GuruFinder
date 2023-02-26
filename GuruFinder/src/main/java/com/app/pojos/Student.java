@@ -18,31 +18,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "students")
-public class Student {
+public class Student extends User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "student_id")
 	private Long studentId;
-	@Column(name = "first_name", length = 30, nullable = false)
-	private String firstName;
-	@Column(name = "last_name", length = 30, nullable = false)
-	private String lastName;
-	@Column(name = "mobile_no", length = 12, nullable = false)
-	private String mobileNo;
-	@Column(name = "email_id", length = 50, nullable = false, unique = true)
-	private String emailId;
-	@Column(length = 20, nullable = false)
-	private String password;
-	@Column(length = 10, nullable = false)
-	private String gender;
-	@Lob
-	@Column(name = "profile_photo", nullable = false)
-	private byte[] profilePhoto;
-	@Lob
-	@Column(name = "id_proof", nullable = false)
-	private byte[] idProof;
-	@Column(nullable = false)
-	private LocalDate dob;
 	
 	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Address address;
@@ -57,105 +37,16 @@ public class Student {
 		super();
 	}
 
-	public Student(String firstName, String lastName, String mobileNo, String emailId, String password,
-			String gender, byte[] profilePhoto, byte[] idProof, LocalDate dob) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.mobileNo = mobileNo;
-		this.emailId = emailId;
-		this.password = password;
-		this.gender = gender;
-		this.profilePhoto = profilePhoto;
-		this.idProof = idProof;
-		this.dob = dob;
+	public Student(String firstName, String lastName, String mobileNo, String emailId, String password, String gender,
+			byte[] profilePhoto, byte[] idProof, LocalDate dob) {
+		super(firstName, lastName, mobileNo, emailId, password, gender, profilePhoto, idProof, dob);
 	}
 
-	public Long getStudentId() {
-		return studentId;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setStudentId(Long studentId) {
-		this.studentId = studentId;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getMobileNo() {
-		return mobileNo;
-	}
-
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
-	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public byte[] getProfilePhoto() {
-		return profilePhoto;
-	}
-
-	public void setProfilePhoto(byte[] profilePhoto) {
-		this.profilePhoto = profilePhoto;
-	}
-
-	public byte[] getIdProof() {
-		return idProof;
-	}
-
-	public void setIdProof(byte[] idProof) {
-		this.idProof = idProof;
-	}
-
-	public LocalDate getDob() {
-		return dob;
-	}
-
-	public void setDob(LocalDate dob) {
-		this.dob = dob;
-	}
-
-	@Override
-	public String toString() {
-		return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName + ", mobileNo="
-				+ mobileNo + ", emailId=" + emailId + ", gender=" + gender + ", profilePhoto="
-				+ Arrays.toString(profilePhoto) + ", idProof=" + Arrays.toString(idProof) + ", dob=" + dob + "]";
-	}
-	
 }

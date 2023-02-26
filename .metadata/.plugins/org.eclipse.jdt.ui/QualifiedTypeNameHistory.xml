@@ -14,7 +14,6 @@
     <fullyQualifiedTypeName name="javax.persistence.JoinColumns"/>
     <fullyQualifiedTypeName name="com.app.pojos.Tutor"/>
     <fullyQualifiedTypeName name="org.hibernate.envers.NotAudited"/>
-    <fullyQualifiedTypeName name="org.hibernate.envers.Audited"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.CreationTimestamp"/>
     <fullyQualifiedTypeName name="javax.persistence.Transient"/>
     <fullyQualifiedTypeName name="java.util.Properties"/>
@@ -22,4 +21,8 @@
     <fullyQualifiedTypeName name="javax.persistence.UniqueConstraint"/>
     <fullyQualifiedTypeName name="javax.persistence.PrimaryKeyJoinColumn"/>
     <fullyQualifiedTypeName name="javax.persistence.MapsId"/>
+    <fullyQualifiedTypeName name="javax.persistence.MappedSuperclass"/>
+    <fullyQualifiedTypeName name="org.hibernate.envers.Audited"/>
+    <fullyQualifiedTypeName name="org.hibernate.envers.AuditTable"/>
+    <fullyQualifiedTypeName name="com.app.pojos.User"/>
 </qualifiedTypeNameHistroy>
