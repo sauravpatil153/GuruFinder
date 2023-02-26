@@ -31,7 +31,6 @@ public class Tutor extends User{
 	@Column(name = "tutor_id")
 	@Audited
 	private Long tutorId;
-	@Column(name = "first_name", length = 30, nullable = false)
 	private String tagline;
 	@Column(nullable = false)
 	private String summary;
@@ -44,7 +43,8 @@ public class Tutor extends User{
 	@Audited
 	private String status;
 	
-	@OneToOne(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "address_id")
 	private Address address;
 	
 	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -56,9 +56,27 @@ public class Tutor extends User{
 	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CourseBrochure> courseBrochures =new ArrayList<CourseBrochure>();
 	
+	@OneToOne
+	@JoinColumn(name = "login_id")
+	private Login login;
+	
 	public Tutor() {
 		super();
 	}
 
-	
+	public Tutor(String firstName, String lastName, String mobileNo, String emailId, String password, String gender,
+			byte[] profilePhoto, byte[] idProof, LocalDate dob, String tagline, String summary, Integer totalExperience, String status) {
+		super(firstName, lastName, mobileNo, emailId, password, gender, profilePhoto, idProof, dob);
+		this.tagline = tagline;
+		this.summary = summary;
+		this.totalExperience = totalExperience;
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString()+ " Tutor [tagline=" + tagline + ", summary=" + summary + ", totalExperience=" + totalExperience
+				+ ", registrationDate=" + registrationDate + ", status=" + status + "]";
+	}
+
 }

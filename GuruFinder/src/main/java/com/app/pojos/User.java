@@ -5,9 +5,11 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
 @MappedSuperclass
-public class User {
+@Table(name = "users")
+public class User{
 	@Column(name = "first_name", length = 30, nullable = false)
 	private String firstName;
 	@Column(name = "last_name", length = 30, nullable = false)
@@ -117,5 +119,11 @@ public class User {
 
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
+	}
+
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", mobileNo=" + mobileNo + ", emailId="
+				+ emailId + ", gender=" + gender + ", dob=" + dob + "]";
 	}
 }

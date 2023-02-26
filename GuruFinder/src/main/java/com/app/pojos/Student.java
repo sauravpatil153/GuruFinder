@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -24,7 +25,8 @@ public class Student extends User{
 	@Column(name = "student_id")
 	private Long studentId;
 	
-	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "address_id")
 	private Address address;
 	
 	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -32,6 +34,10 @@ public class Student extends User{
 	
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CourseEnrollment> courseEnrollment=new ArrayList<CourseEnrollment>();
+	
+	@OneToOne
+	@JoinColumn(name = "login_id")
+	private Login login;
 	
 	public Student() {
 		super();
@@ -49,4 +55,10 @@ public class Student extends User{
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString()+" Student [studentId=" + studentId + "]";
+	}
+	
 }

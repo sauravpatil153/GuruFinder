@@ -1,0 +1,64 @@
+package com.app.pojos;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.data.annotation.CreatedDate;
+
+public class CourseEnrollment {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "enrollment_id")
+	private long enrollmentId;
+	@Column(name = "enrollment_date")
+	@CreatedDate
+	private LocalDate enrollmentDate;
+	@Column(name = "payment_transaction_id", length = 50, nullable = false)
+	private String paymentTransactionId;
+	
+	public CourseEnrollment() {
+		super();
+	}
+
+	public CourseEnrollment(LocalDate enrollmentDate, String paymentTransactionId) {
+		super();
+		this.enrollmentDate = enrollmentDate;
+		this.paymentTransactionId = paymentTransactionId;
+	}
+
+	public long getEnrollmentId() {
+		return enrollmentId;
+	}
+
+	public void setEnrollmentId(long enrollmentId) {
+		this.enrollmentId = enrollmentId;
+	}
+
+	public LocalDate getEnrollmentDate() {
+		return enrollmentDate;
+	}
+
+	public void setEnrollmentDate(LocalDate enrollmentDate) {
+		this.enrollmentDate = enrollmentDate;
+	}
+
+	public String getPaymentTransactionId() {
+		return paymentTransactionId;
+	}
+
+	public void setPaymentTransactionId(String paymentTransactionId) {
+		this.paymentTransactionId = paymentTransactionId;
+	}
+
+	@Override
+	public String toString() {
+		return "CourseEnrollment [enrollmentId=" + enrollmentId + ", enrollmentDate=" + enrollmentDate
+				+ ", paymentTransactionId=" + paymentTransactionId + "]";
+	}
+	
+	
+}
