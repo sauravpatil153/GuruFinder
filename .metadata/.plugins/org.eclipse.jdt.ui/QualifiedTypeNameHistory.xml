@@ -26,7 +26,11 @@
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
     <fullyQualifiedTypeName name="com.app.pojos.Login"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
-    <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="com.app.pojos.Student"/>
     <fullyQualifiedTypeName name="com.app.pojos.Tutor"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+    <fullyQualifiedTypeName name="com.app.pojos.TutorExperience"/>
+    <fullyQualifiedTypeName name="com.app.pojos.TutorVerification"/>
+    <fullyQualifiedTypeName name="javax.persistence.Enumerated"/>
+    <fullyQualifiedTypeName name="com.app.pojos.VerificationStatus"/>
 </qualifiedTypeNameHistroy>
