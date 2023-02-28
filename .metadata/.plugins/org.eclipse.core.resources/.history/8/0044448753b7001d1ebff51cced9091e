@@ -1,0 +1,48 @@
+package com.app.auth;
+
+import java.time.LocalDate;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.app.dto.StudentDto;
+import com.app.pojos.Login;
+import com.app.pojos.Student;
+import com.app.pojos.UserRoles;
+import com.app.repository.StudentRepository;
+import com.app.securityconfig.JwtService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AuthenticationService {
+	private final StudentRepository studentRepository;
+	private final JwtService jwtService;
+	private final PasswordEncoder passwordEncoder;
+	
+	//String firstName, String lastName, String mobileNo, String emailId, String password,
+	//String gender,
+	//byte[] profilePhoto, byte[] idProof, LocalDate dob
+	
+	public AuthenticationResponse register(StudentDto request) {
+		Student student=new Student(request.getFirstName(),
+				request.getLastName(),request.getMobileNo(),request.getEmailId(),
+				passwordEncoder.encode(request.getPassword()),request.getGender(),request.getProfilePhoto(),
+				request.getIdProof(),request.getDob());
+		studentRepository.save(student);
+		Login newLogin=new Login(request.getEmailId(),
+				passwordEncoder.encode(request.getPassword()),
+				UserRoles.STUDENT);
+		var jwtToken=jwtService.generateToken(newLogin);
+		return AuthenticationResponse.builder()
+				.token(jwtToken)
+				.
+				;
+	}
+
+	public AuthenticationResponse authenticate(AuthenticationRequest request) {
+		return null;
+	}
+
+}

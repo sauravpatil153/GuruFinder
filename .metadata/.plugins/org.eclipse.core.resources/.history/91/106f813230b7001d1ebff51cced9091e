@@ -1,0 +1,6 @@
+package com.app.securityconfig;
+
+public class JwtAuthenticationFilter extends  {
+	
+	
+}

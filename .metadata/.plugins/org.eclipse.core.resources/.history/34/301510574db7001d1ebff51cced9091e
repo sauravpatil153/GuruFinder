@@ -1,0 +1,5 @@
+package com.app.auth;
+
+public class AuthenticationController {
+
+}

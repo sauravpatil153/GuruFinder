@@ -1,0 +1,12 @@
+package com.app.securityconfig;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class JwtService {
+
+	public String extracUserName(String token) {
+		return null;
+	}
+
+}
