@@ -47,7 +47,7 @@ public class AuthenticationService {
 				request.getEmailId(), passwd, request.getGender(), request.getProfilePhoto(), request.getIdProof(),
 				request.getDob());
 		studentRepository.save(student);
-		Login newLogin = new Login(request.getEmailId(), passwd, UserRoles.STUDENT);
+		Login newLogin = new Login(request.getEmailId(), passwd, UserRoles.ROLE_STUDENT);
 		loginRepository.save(newLogin);
 		var jwtToken = jwtService.generateToken(newLogin);
 		return AuthenticationResponse.builder().token(jwtToken).build();
@@ -59,7 +59,7 @@ public class AuthenticationService {
 				request.getEmailId(), passwd, request.getGender(), request.getProfilePhoto(), request.getIdProof(),
 				request.getDob(),request.getTagline(),request.getSummary(),request.getTotalExperience());
 		tutorRepository.save(tutor);
-		Login newLogin = new Login(request.getEmailId(), passwd, UserRoles.TUTOR);
+		Login newLogin = new Login(request.getEmailId(), passwd, UserRoles.ROLE_TUTOR);
 		loginRepository.save(newLogin);
 		var jwtToken = jwtService.generateToken(newLogin);
 		return AuthenticationResponse.builder().token(jwtToken).build();

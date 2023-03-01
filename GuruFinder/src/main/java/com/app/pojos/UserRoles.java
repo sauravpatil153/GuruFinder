@@ -1,5 +1,5 @@
 package com.app.pojos;
 
 public enum UserRoles {
-	TUTOR, ADMIN, STUDENT
+	ROLE_TUTOR, ROLE_ADMIN, ROLE_STUDENT
 }
