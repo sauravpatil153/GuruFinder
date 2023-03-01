@@ -19,12 +19,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.app.token.Token;
-
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Data
+@NoArgsConstructor
 @Table(name = "login")
 public class Login implements UserDetails{
 	@Id
@@ -39,6 +38,15 @@ public class Login implements UserDetails{
 	@Enumerated(EnumType.STRING)
 	private UserRoles userRole;
 	
+	public Login(String emailId, String password, UserRoles userRole) {
+		super();
+		this.emailId = emailId;
+		this.password = password;
+		this.userRole = userRole;
+	}
+	
+	
+	
 	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Student student;
 	
@@ -50,13 +58,6 @@ public class Login implements UserDetails{
 	
 	@OneToMany(mappedBy = "login")
 	private List<Token> tokens;
-	
-	public Login(String emailId, String password, UserRoles userRole) {
-		super();
-		this.emailId = emailId;
-		this.password = password;
-		this.userRole = userRole;
-	}
 	
 	@Override
 	public String toString() {
@@ -96,6 +97,14 @@ public class Login implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public Long getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(Long loginId) {
+		this.loginId = loginId;
 	}
 
 }
