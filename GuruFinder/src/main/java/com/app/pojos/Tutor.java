@@ -60,7 +60,7 @@ public class Tutor extends User{
 	}
 
 	public Tutor(String firstName, String lastName, String mobileNo, String emailId, String password, String gender,
-			byte[] profilePhoto, byte[] idProof, LocalDate dob, String tagline, String summary, Integer totalExperience, String status) {
+			byte[] profilePhoto, byte[] idProof, LocalDate dob, String tagline, String summary, Integer totalExperience) {
 		super(firstName, lastName, mobileNo, emailId, password, gender, profilePhoto, idProof, dob);
 		this.tagline = tagline;
 		this.summary = summary;

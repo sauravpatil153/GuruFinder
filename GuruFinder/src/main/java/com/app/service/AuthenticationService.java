@@ -1,6 +1,7 @@
 package com.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,11 +14,13 @@ import com.app.pojos.Login;
 import com.app.pojos.Student;
 import com.app.pojos.Token;
 import com.app.pojos.TokenType;
+import com.app.pojos.Tutor;
 import com.app.pojos.User;
 import com.app.pojos.UserRoles;
 import com.app.repository.LoginRepository;
 import com.app.repository.StudentRepository;
 import com.app.repository.TokenRepository;
+import com.app.repository.TutorRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,19 +34,32 @@ public class AuthenticationService {
 	private final PasswordEncoder passwordEncoder;
 	private final AuthenticationManager authenticationManager;
 	private final TokenRepository tokenRepository;
+	private final TutorRepository tutorRepository;
 
 	// String firstName, String lastName, String mobileNo, String emailId, String
 	// password,
 	// String gender,
 	// byte[] profilePhoto, byte[] idProof, LocalDate dob
 
-	public AuthenticationResponse registerStudent(StudentDto request) {
+	public AuthenticationResponse registerStudent(Student request) {
 		String passwd = passwordEncoder.encode(request.getPassword());
 		Student student = new Student(request.getFirstName(), request.getLastName(), request.getMobileNo(),
 				request.getEmailId(), passwd, request.getGender(), request.getProfilePhoto(), request.getIdProof(),
 				request.getDob());
 		studentRepository.save(student);
 		Login newLogin = new Login(request.getEmailId(), passwd, UserRoles.STUDENT);
+		loginRepository.save(newLogin);
+		var jwtToken = jwtService.generateToken(newLogin);
+		return AuthenticationResponse.builder().token(jwtToken).build();
+	}
+	
+	public AuthenticationResponse registerTutor(Tutor request) {
+		String passwd = passwordEncoder.encode(request.getPassword());
+		Tutor tutor = new Tutor(request.getFirstName(), request.getLastName(), request.getMobileNo(),
+				request.getEmailId(), passwd, request.getGender(), request.getProfilePhoto(), request.getIdProof(),
+				request.getDob(),request.getTagline(),request.getSummary(),request.getTotalExperience());
+		tutorRepository.save(tutor);
+		Login newLogin = new Login(request.getEmailId(), passwd, UserRoles.TUTOR);
 		loginRepository.save(newLogin);
 		var jwtToken = jwtService.generateToken(newLogin);
 		return AuthenticationResponse.builder().token(jwtToken).build();
@@ -81,4 +97,5 @@ public class AuthenticationService {
 		});
 		tokenRepository.saveAll(validUserTokens);
 	}
+
 }
