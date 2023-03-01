@@ -1,0 +1,25 @@
+package com.app.service;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.dto.StudentEduDetailsDto;
+import com.app.pojos.StudentEducationalDetails;
+import com.app.repository.StudentEduDetailsRepository;
+
+@Service
+@Transactional
+public class StudentEduDetailsServiceImpl implements StudentEduDetailsService {
+	@Autowired
+	private StudentEduDetailsRepository detailsRepository;
+
+	@Override
+	public void addStudentEducationalDetails(Long studentId, StudentEducationalDetails request) {
+		request.addStudent(studentId);
+		detailsRepository.save(request);
+	}
+	
+	
+}

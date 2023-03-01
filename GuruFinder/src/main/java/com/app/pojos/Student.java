@@ -51,13 +51,21 @@ public class Student extends User{
 			byte[] profilePhoto, byte[] idProof, LocalDate dob) {
 		super(firstName, lastName, mobileNo, emailId, password, gender, profilePhoto, idProof, dob);
 	}
-
-	public Address getAddress() {
-		return address;
+	
+	public Long getStudentId() {
+		return studentId;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
+	}
+	
+	public StudentEducationalDetails getDetails() {
+		return details;
+	}
+
+	public void setDetails(StudentEducationalDetails details) {
+		this.details = details;
 	}
 
 	@Override

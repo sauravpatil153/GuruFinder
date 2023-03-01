@@ -29,7 +29,7 @@ public class SecurityConfiguration {
 		http.csrf()
 		.disable()
 		.authorizeHttpRequests()
-		.antMatchers("/api/v1/demo/**").hasRole("STUDENT")
+		.antMatchers("/api/v1/demo/**","/student/edudetails").hasRole("STUDENT")
 		.antMatchers("/register/**","/authenticate")
 		.permitAll()
 		.anyRequest()

@@ -28,6 +28,11 @@ public class StudentEducationalDetails {
 	@JoinColumn(name = "student_id",unique = true)
 	private Student student;
 	
+	public void addStudent(Student student) {
+		this.setStudent(student);
+		student.setDetails(this);
+	}
+	
 	public StudentEducationalDetails() {
 		super();
 	}
@@ -37,6 +42,16 @@ public class StudentEducationalDetails {
 		this.stream = stream;
 		this.level = level;
 		this.board = board;
+	}
+	
+	
+	
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 	public Long getStudEduDetailsId() {
@@ -70,6 +85,8 @@ public class StudentEducationalDetails {
 	public void setBoard(String board) {
 		this.board = board;
 	}
+	
+	
 
 	@Override
 	public String toString() {

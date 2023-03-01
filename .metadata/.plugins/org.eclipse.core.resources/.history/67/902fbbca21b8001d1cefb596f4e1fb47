@@ -1,0 +1,6 @@
+package com.app.service;
+
+public interface StudentService {
+	void removeStudById(Long id);
+	void addStudentEducationalDetails(Long studentId);
+}
