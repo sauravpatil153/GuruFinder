@@ -24,8 +24,7 @@ public class StudentEduDetailsServiceImpl implements StudentEduDetailsService {
 
 	@Override
 	public void addStudentEducationalDetails(Long studentId, StudentEducationalDetails request) {
-		Student existingStudent = studentRepository.findById(studentId).orElseThrow();
-		request.addStudent(existingStudent);
+		Optional<Student> existingStudent = studentRepository.findById(studentId);
 		detailsRepository.save(request);
 	}
 	

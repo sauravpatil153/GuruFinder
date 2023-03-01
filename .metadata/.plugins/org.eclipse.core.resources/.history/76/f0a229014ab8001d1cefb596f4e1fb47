@@ -30,7 +30,7 @@ public class StudentEducationalDetails {
 	
 	public void addStudent(Student student) {
 		this.setStudent(student);
-		student.setDetails(null);
+		student.setDetails(this);
 	}
 	
 	public StudentEducationalDetails() {
