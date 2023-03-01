@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.AuthenticationRequest;
 import com.app.dto.AuthenticationResponse;
 import com.app.dto.StudentDto;
-import com.app.dto.TutorDto;
-import com.app.pojos.Tutor;
 import com.app.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,12 +19,12 @@ public class AuthenticationController {
 	private final AuthenticationService service;
 	
 	@PostMapping("/register/student")
-	public ResponseEntity<AuthenticationResponse> registerNewStudent(@RequestBody Student request){
+	public ResponseEntity<AuthenticationResponse> register(@RequestBody StudentDto request){
 		return ResponseEntity.ok(service.registerStudent(request));	
 	}
 	
 	@PostMapping("/register/tutor")
-	public ResponseEntity<AuthenticationResponse> registerNewTutor(@RequestBody Tutor request){
+	public ResponseEntity<AuthenticationResponse> register(@RequestBody TutorDto request){
 		return ResponseEntity.ok(service.registerTutor(request));
 	}
 	

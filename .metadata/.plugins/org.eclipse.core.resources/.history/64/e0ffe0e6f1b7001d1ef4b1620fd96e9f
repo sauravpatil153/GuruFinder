@@ -10,7 +10,6 @@ import com.app.dto.AuthenticationRequest;
 import com.app.dto.AuthenticationResponse;
 import com.app.dto.StudentDto;
 import com.app.dto.TutorDto;
-import com.app.pojos.Tutor;
 import com.app.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;

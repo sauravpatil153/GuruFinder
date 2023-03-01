@@ -37,7 +37,8 @@ public class AuthenticationService {
 	// String gender,
 	// byte[] profilePhoto, byte[] idProof, LocalDate dob
 
-	public AuthenticationResponse registerStudent(StudentDto request) {
+	public AuthenticationResponse register(StudentDto request) {
+		System.out.println(request);
 		String passwd = passwordEncoder.encode(request.getPassword());
 		Student student = new Student(request.getFirstName(), request.getLastName(), request.getMobileNo(),
 				request.getEmailId(), passwd, request.getGender(), request.getProfilePhoto(), request.getIdProof(),
