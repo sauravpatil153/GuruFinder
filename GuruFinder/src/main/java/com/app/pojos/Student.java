@@ -81,10 +81,23 @@ public class Student extends User{
 	public void setDetails(StudentEducationalDetails details) {
 		this.details = details;
 	}
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	@Override
 	public String toString() {
 		return super.toString()+" Student [studentId=" + studentId + "]";
+	}
+
+	public void addAddress(Address address) {
+		this.setAddress(address);
+		address.setStudent(this);
 	}
 	
 }

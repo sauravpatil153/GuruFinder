@@ -113,5 +113,21 @@ public class Address {
 		return "Address [addressId=" + addressId + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2
 				+ ", city=" + city + ", district=" + district + ", state=" + state + ", pincode=" + pincode + "]";
 	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
 	
 }
