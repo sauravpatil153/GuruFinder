@@ -53,6 +53,19 @@ public class Student extends User{
 		super(firstName, lastName, mobileNo, emailId, password, gender, profilePhoto, idProof, dob);
 	}
 	
+	public void addLogin(Login newlogin) {
+		this.setLogin(newlogin);
+		newlogin.setStudent(this);
+	}
+	
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
 	public Long getStudentId() {
 		return studentId;
 	}

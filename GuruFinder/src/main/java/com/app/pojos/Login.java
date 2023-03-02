@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,15 +46,13 @@ public class Login implements UserDetails{
 		this.userRole = userRole;
 	}
 	
-	
-	
-	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Student student;
 	
-	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Tutor tutor;
 	
-	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Admin admin;
 	
 	@OneToMany(mappedBy = "login")
@@ -68,7 +67,7 @@ public class Login implements UserDetails{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return List.of(new SimpleGrantedAuthority(userRole.name()));
 	}
-
+	
 	@Override
 	public String getUsername() {
 		return emailId;
@@ -105,6 +104,22 @@ public class Login implements UserDetails{
 
 	public void setLoginId(Long loginId) {
 		this.loginId = loginId;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
 	}
 
 }

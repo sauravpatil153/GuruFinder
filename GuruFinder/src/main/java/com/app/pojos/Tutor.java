@@ -67,6 +67,19 @@ public class Tutor extends User{
 		this.totalExperience = totalExperience;
 	}
 	
+	public void addLogin(Login newLogin) {
+		this.setLogin(newLogin);
+		newLogin.setTutor(this);
+	}
+	
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
 	public Long getTutorId() {
 		return tutorId;
 	}
