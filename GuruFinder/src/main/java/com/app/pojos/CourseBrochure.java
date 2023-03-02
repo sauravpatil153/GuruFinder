@@ -1,11 +1,13 @@
 package com.app.pojos;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +30,11 @@ public class CourseBrochure {
 	@Column(length = 30, nullable = false)
 	private String stream;
 	@Column(length = 30, nullable = false)
+	private String subject;
+	@Column(length = 30, nullable = false)
 	private String level;
+	@Column(name = "start_date", nullable = false)
+	private LocalDate startDate;
 	@Column(nullable = false)
 	private Integer duration;
 	@Column(nullable = false)
@@ -36,11 +42,11 @@ public class CourseBrochure {
 	@Column(length = 10, nullable = false)
 	private String mode;
 	@Id
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "tutor_id")
 	private Tutor tutor;
 	
-	@OneToMany(mappedBy = "courseBrochure", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "courseBrochure", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<CourseEnrollment> courseEnrollment=new ArrayList<CourseEnrollment>();
 	
 	public CourseBrochure() {

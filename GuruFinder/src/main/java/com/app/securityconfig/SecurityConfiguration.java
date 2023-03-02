@@ -1,7 +1,5 @@
 package com.app.securityconfig;
 
-import java.util.List;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -26,11 +24,11 @@ public class SecurityConfiguration {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.csrf()
+		http.cors().and().csrf()
 		.disable()
 		.authorizeHttpRequests()
-		.antMatchers("/api/v1/demo/**","/student/edudetails").hasRole("STUDENT")
-		.antMatchers("/register/**","/authenticate")
+		.antMatchers("/student/**").hasRole("STUDENT")
+		.antMatchers("/register/**","/authenticate","/swagger*/**", "/v*/api-docs/**","/search_ssl","/search_keyword")
 		.permitAll()
 		.anyRequest()
 		.authenticated()
