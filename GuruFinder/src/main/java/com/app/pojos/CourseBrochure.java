@@ -30,17 +30,19 @@ public class CourseBrochure {
 	@Column(length = 30, nullable = false)
 	private String stream;
 	@Column(length = 30, nullable = false)
-	private String subject;
-	@Column(length = 30, nullable = false)
 	private String level;
 	@Column(name = "start_date", nullable = false)
 	private LocalDate startDate;
+	@Column(name = "end_date", nullable = false)
+	private LocalDate endDate;
 	@Column(nullable = false)
 	private Integer duration;
 	@Column(nullable = false)
 	private Double fees;
 	@Column(length = 10, nullable = false)
 	private String mode;
+	@Column(length = 20, nullable = false)
+	private String time;
 	@Id
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "tutor_id")

@@ -46,13 +46,13 @@ public class Login implements UserDetails{
 		this.userRole = userRole;
 	}
 	
-	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Student student;
 	
-	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Tutor tutor;
 	
-	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Admin admin;
 	
 	@OneToMany(mappedBy = "login")

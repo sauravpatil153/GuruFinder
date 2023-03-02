@@ -27,6 +27,7 @@ public class SecurityConfiguration {
 		http.cors().and().csrf()
 		.disable()
 		.authorizeHttpRequests()
+		.antMatchers("/tutor/**").hasRole("TUTOR")
 		.antMatchers("/student/**").hasRole("STUDENT")
 		.antMatchers("/register/**","/authenticate","/swagger*/**", "/v*/api-docs/**","/search_ssl","/search_keyword")
 		.permitAll()
