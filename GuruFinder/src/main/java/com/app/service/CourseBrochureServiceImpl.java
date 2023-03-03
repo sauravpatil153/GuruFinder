@@ -31,4 +31,9 @@ public class CourseBrochureServiceImpl implements CourseBrochureService{
 		return courseBrochureList;
 	}
 
+	@Override
+	public String addCourse(Long tutorId, CourseBrochure newCourse) {
+		return null;
+	}
+
 }

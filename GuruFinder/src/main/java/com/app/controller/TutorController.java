@@ -30,11 +30,11 @@ public class TutorController {
 	}
 	
 	@PostMapping("/address")
-	public ResponseEntity<?> addStudentAddress
+	public ResponseEntity<?> addTutorAddress
 	(@RequestParam Long tutorId, @RequestBody Address address){
 		System.out.println(tutorId);
 		System.out.println(address);
-		return ResponseEntity.ok(addressService.addStudentAddress(tutorId,address));
+		return ResponseEntity.ok(addressService.addTutorAddress(tutorId,address));
 	}
 
 }

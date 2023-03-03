@@ -67,11 +67,6 @@ public class Tutor extends User{
 		this.totalExperience = totalExperience;
 	}
 	
-	public void addTutorQualification(TutorQualifications newtutorQualification) {
-		qualifications.add(newtutorQualification);
-		newtutorQualification.setTutor(this);
-	}
-	
 	public Login getLogin() {
 		return login;
 	}
@@ -134,6 +129,11 @@ public class Tutor extends User{
 	public void addAddress(Address address) {
 		this.setAddress(address);
 		address.setTutor(this);
+	}
+	
+	public void addTutorQualification(TutorQualifications newtutorQualification) {
+		qualifications.add(newtutorQualification);
+		newtutorQualification.setTutor(this);
 	}
 
 }

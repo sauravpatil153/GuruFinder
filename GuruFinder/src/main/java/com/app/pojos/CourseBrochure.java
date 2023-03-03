@@ -55,14 +55,18 @@ public class CourseBrochure {
 		super();
 	}
 
-	public CourseBrochure(String courseName, String stream, String level, Integer duration, Double fees, String mode) {
+	public CourseBrochure(String courseName, String stream, String level, LocalDate startDate, LocalDate endDate,
+			Integer duration, Double fees, String mode, String time) {
 		super();
 		this.courseName = courseName;
 		this.stream = stream;
 		this.level = level;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.duration = duration;
 		this.fees = fees;
 		this.mode = mode;
+		this.time = time;
 	}
 
 	public Long getCourseId() {
@@ -119,5 +123,45 @@ public class CourseBrochure {
 
 	public void setMode(String mode) {
 		this.mode = mode;
+	}
+
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
+
+	public List<CourseEnrollment> getCourseEnrollment() {
+		return courseEnrollment;
+	}
+
+	public void setCourseEnrollment(List<CourseEnrollment> courseEnrollment) {
+		this.courseEnrollment = courseEnrollment;
 	}
 }
