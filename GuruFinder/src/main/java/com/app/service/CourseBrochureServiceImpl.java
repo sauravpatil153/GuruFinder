@@ -9,13 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.pojos.CourseBrochure;
+import com.app.pojos.Tutor;
 import com.app.repository.CourseBrochureRepository;
+import com.app.repository.TutorRepository;
 
 @Service
 @Transactional
 public class CourseBrochureServiceImpl implements CourseBrochureService{
 	@Autowired
-	CourseBrochureRepository courseBrochureRepository;
+	private CourseBrochureRepository courseBrochureRepository;
+	
+	@Autowired
+	private TutorRepository tutorRepository;
 
 	@Override
 	public List<CourseBrochure> findCoursesBySSL(String stream, String courseName, String level) {
@@ -33,7 +38,10 @@ public class CourseBrochureServiceImpl implements CourseBrochureService{
 
 	@Override
 	public String addCourse(Long tutorId, CourseBrochure newCourse) {
-		return null;
+		Tutor existingTutor = tutorRepository.findById(tutorId).orElseThrow();
+		existingTutor.addCourseBrochure(newCourse);
+		courseBrochureRepository.save(newCourse);
+		return "Course added succesfully";
 	}
 
 }

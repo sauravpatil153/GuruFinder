@@ -149,5 +149,9 @@ public class Tutor extends User{
 		experiences.add(newTutorExperience);
 		newTutorExperience.setTutor(this);
 	}
-
+	
+	public void addCourseBrochure(CourseBrochure newCourseBrochure) {
+		courseBrochures.add(newCourseBrochure);
+		newCourseBrochure.setTutor(this);
+	}
 }
