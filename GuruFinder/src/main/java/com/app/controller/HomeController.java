@@ -17,10 +17,10 @@ public class HomeController {
 	@GetMapping("/search_ssl")
 	public ResponseEntity<?> searchTutors(
 			@RequestParam String stream,
-			@RequestParam String subject,
+			@RequestParam String courseName,
 			@RequestParam String level){
-		System.out.println(stream+" " +subject+" "+level);
-		return ResponseEntity.ok(courseBrochureService.findCoursesBySSL(stream,subject,level));
+		System.out.println(stream+" " +courseName+" "+level);
+		return ResponseEntity.ok(courseBrochureService.findCoursesBySSL(stream,courseName,level));
 	}
 	
 	@GetMapping("/search_keyword")

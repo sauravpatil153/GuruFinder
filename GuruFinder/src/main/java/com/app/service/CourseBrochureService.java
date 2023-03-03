@@ -6,7 +6,7 @@ import com.app.pojos.CourseBrochure;
 
 public interface CourseBrochureService{
 
-	List<CourseBrochure> findCoursesBySSL(String stream, String subject, String level);
+	List<CourseBrochure> findCoursesBySSL(String stream, String courseName, String level);
 
 	List<CourseBrochure> findCoursesByKeyword(String keyword);
 }

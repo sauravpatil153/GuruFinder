@@ -10,10 +10,10 @@ import com.app.pojos.CourseBrochure;
 @Repository
 public interface CourseBrochureRepository extends JpaRepository<CourseBrochure, Long> {
 
-	List<CourseBrochure> findByStreamAndSubjectAndLevel(String stream, String subject, String level);
+	List<CourseBrochure> findByStreamAndCourseNameAndLevel(String stream, String courseName, String level);
 	
 	List<CourseBrochure> findByStream(String keyword);
-	List<CourseBrochure> findBySubject(String keyword);
+	List<CourseBrochure> findByCourseName(String keyword);
 	List<CourseBrochure> findByLevel(String keyword);
 
 }

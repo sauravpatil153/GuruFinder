@@ -18,15 +18,15 @@ public class CourseBrochureServiceImpl implements CourseBrochureService{
 	CourseBrochureRepository courseBrochureRepository;
 
 	@Override
-	public List<CourseBrochure> findCoursesBySSL(String stream, String subject, String level) {
-		return courseBrochureRepository.findByStreamAndSubjectAndLevel(stream, subject, level);
+	public List<CourseBrochure> findCoursesBySSL(String stream, String courseName, String level) {
+		return courseBrochureRepository.findByStreamAndCourseNameAndLevel(stream, courseName, level);
 	}
 
 	@Override
 	public List<CourseBrochure> findCoursesByKeyword(String keyword) {
 		List<CourseBrochure> courseBrochureList=new ArrayList<CourseBrochure>();
 		courseBrochureList.addAll(courseBrochureRepository.findByStream(keyword));
-		courseBrochureList.addAll(courseBrochureRepository.findBySubject(keyword));
+		courseBrochureList.addAll(courseBrochureRepository.findByCourseName(keyword));
 		courseBrochureList.addAll(courseBrochureRepository.findByLevel(keyword));
 		return courseBrochureList;
 	}
