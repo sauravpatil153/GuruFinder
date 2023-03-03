@@ -4,6 +4,6 @@ import com.app.pojos.StudentEducationalDetails;
 
 public interface StudentEduDetailsService {
 
-	String addStudentEducationalDetails(Long studentId, StudentEducationalDetails request);
+	void addStudentEducationalDetails(Long studentId, StudentEducationalDetails request);
 	
 }

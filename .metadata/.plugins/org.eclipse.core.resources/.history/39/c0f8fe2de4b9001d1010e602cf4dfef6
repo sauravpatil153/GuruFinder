@@ -27,7 +27,6 @@ public class StudentEduDetailsServiceImpl implements StudentEduDetailsService {
 		Student existingStudent = studentRepository.findById(studentId).orElseThrow();
 		request.addStudent(existingStudent);
 		detailsRepository.save(request);
-		return "Student Educational Details succesfully";
 	}
 	
 	

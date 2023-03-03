@@ -34,7 +34,7 @@ public class StudentController {
 	(@RequestParam Long studentId, @RequestBody StudentEducationalDetails request){
 		System.out.println(studentId);
 		System.out.println(request);
-		return ResponseEntity.ok(detailsService.addStudentEducationalDetails(studentId,request));
+		ResponseEntity.ok(detailsService.addStudentEducationalDetails(studentId,request));
 	}
 	
 	@PostMapping("/address")

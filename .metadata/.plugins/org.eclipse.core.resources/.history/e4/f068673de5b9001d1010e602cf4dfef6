@@ -72,6 +72,16 @@ public class Tutor extends User{
 		newtutorQualification.setTutor(this);
 	}
 	
+	public void addLogin(Login newLogin) {
+		this.setLogin(newLogin);
+		newLogin.setTutor(this);
+	}
+	
+	public void addAddress(Address address) {
+		this.setAddress(address);
+		address.setTutor(this);
+	}
+	
 	public Login getLogin() {
 		return login;
 	}
@@ -124,16 +134,6 @@ public class Tutor extends User{
 	public String toString() {
 		return super.toString()+ " Tutor [tagline=" + tagline + ", summary=" + summary + ", totalExperience=" + totalExperience
 				+ "]";
-	}
-	
-	public void addLogin(Login newLogin) {
-		this.setLogin(newLogin);
-		newLogin.setTutor(this);
-	}
-	
-	public void addAddress(Address address) {
-		this.setAddress(address);
-		address.setTutor(this);
 	}
 
 }

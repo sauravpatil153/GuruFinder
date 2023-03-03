@@ -23,11 +23,10 @@ public class StudentEduDetailsServiceImpl implements StudentEduDetailsService {
 	private StudentRepository studentRepository;
 
 	@Override
-	public String addStudentEducationalDetails(Long studentId, StudentEducationalDetails request) {
+	public void addStudentEducationalDetails(Long studentId, StudentEducationalDetails request) {
 		Student existingStudent = studentRepository.findById(studentId).orElseThrow();
 		request.addStudent(existingStudent);
 		detailsRepository.save(request);
-		return "Student Educational Details succesfully";
 	}
 	
 	

@@ -6,5 +6,4 @@ public interface AddressService {
 
 	String addStudentAddress(Long studentId, Address address);
 	
-	String addTutorAddress(Long tutorId, Address address);
 }
