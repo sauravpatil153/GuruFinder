@@ -47,6 +47,14 @@ public class TutorVerification {
 		this.tutorVerificationId = tutorVerificationId;
 	}
 
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
+
 	public LocalDate getRegistrationDate() {
 		return registrationDate;
 	}
@@ -61,5 +69,10 @@ public class TutorVerification {
 
 	public void setStatus(VerificationStatus status) {
 		this.status = status;
+	}
+	
+	public void addTutor(Tutor existingTutor) {
+		this.setTutor(existingTutor);
+		existingTutor.setVerification(this);
 	}
 }

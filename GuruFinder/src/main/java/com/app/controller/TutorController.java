@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.pojos.Address;
+import com.app.pojos.TutorExperience;
 import com.app.pojos.TutorQualifications;
 import com.app.service.AddressService;
+import com.app.service.TutorExperienceService;
 import com.app.service.TutorQualificationsService;
 
 @RestController
@@ -22,6 +24,9 @@ public class TutorController {
 	
 	@Autowired
 	private AddressService addressService;
+	
+	@Autowired
+	private TutorExperienceService tutorExperienceService;
 	
 	@PostMapping("/qualificationdetails")
 	public ResponseEntity<?> addTutorQualifications
@@ -35,6 +40,14 @@ public class TutorController {
 		System.out.println(tutorId);
 		System.out.println(address);
 		return ResponseEntity.ok(addressService.addTutorAddress(tutorId,address));
+	}
+	
+	@PostMapping("/experience")
+	public ResponseEntity<?> addTutorExperience
+	(@RequestParam Long tutorId, @RequestBody TutorExperience tutorExperience){
+		System.out.println(tutorId);
+		System.out.println(tutorExperience);
+		return ResponseEntity.ok(tutorExperienceService.addTutorExperience(tutorId,tutorExperience));
 	}
 
 }

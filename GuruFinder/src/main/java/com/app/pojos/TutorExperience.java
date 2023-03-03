@@ -52,6 +52,14 @@ public class TutorExperience {
 		this.tutorExperienceId = tutorExperienceId;
 	}
 
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
+
 	public Integer getNumberOfYears() {
 		return numberOfYears;
 	}

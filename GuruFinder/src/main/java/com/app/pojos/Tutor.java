@@ -87,6 +87,15 @@ public class Tutor extends User{
 		return tagline;
 	}
 
+	
+	public TutorVerification getVerification() {
+		return verification;
+	}
+
+	public void setVerification(TutorVerification verification) {
+		this.verification = verification;
+	}
+
 	public Address getAddress() {
 		return address;
 	}
@@ -134,6 +143,11 @@ public class Tutor extends User{
 	public void addTutorQualification(TutorQualifications newtutorQualification) {
 		qualifications.add(newtutorQualification);
 		newtutorQualification.setTutor(this);
+	}
+	
+	public void addExperience(TutorExperience newTutorExperience) {
+		experiences.add(newTutorExperience);
+		newTutorExperience.setTutor(this);
 	}
 
 }
