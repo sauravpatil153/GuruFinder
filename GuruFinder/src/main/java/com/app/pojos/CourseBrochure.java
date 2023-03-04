@@ -18,7 +18,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@IdClass(CourseBrochureId.class)
 @Table(name = "course_brochures")
 public class CourseBrochure {
 	@Id
@@ -43,7 +42,6 @@ public class CourseBrochure {
 	private String mode;
 	@Column(length = 20, nullable = false)
 	private String time;
-	@Id
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "tutor_id")
 	private Tutor tutor;
@@ -156,12 +154,9 @@ public class CourseBrochure {
 	public void setTutor(Tutor tutor) {
 		this.tutor = tutor;
 	}
-
-	public List<CourseEnrollment> getCourseEnrollment() {
-		return courseEnrollment;
-	}
-
-	public void setCourseEnrollment(List<CourseEnrollment> courseEnrollment) {
-		this.courseEnrollment = courseEnrollment;
+	
+	public void addCourseEnrollment(CourseEnrollment newEnrollment) {
+		courseEnrollment.add(newEnrollment);
+		newEnrollment.setCourseBrochure(this);
 	}
 }

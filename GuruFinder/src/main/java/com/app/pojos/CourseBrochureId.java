@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class CourseBrochureId implements Serializable{
 	private Long courseId;
-	private Tutor tutor;
+	private Long tutorId;
 	
 	public CourseBrochureId() {
 		super();
 	}
 
-	public CourseBrochureId(Long courseId, Tutor tutor) {
+	public CourseBrochureId(Long courseId, Long tutorId) {
 		super();
 		this.courseId = courseId;
-		this.tutor = tutor;
+		this.tutorId = tutorId;
 	}
 
 	public Long getCourseId() {
@@ -24,14 +24,12 @@ public class CourseBrochureId implements Serializable{
 		this.courseId = courseId;
 	}
 
-	public Tutor getTutor() {
-		return tutor;
+	public Long getTutorId() {
+		return tutorId;
 	}
 
-	public void setTutor(Tutor tutor) {
-		this.tutor = tutor;
+	public void setTutorId(Long tutorId) {
+		this.tutorId = tutorId;
 	}
 
-	
-	
 }

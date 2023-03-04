@@ -29,7 +29,7 @@ public class CourseEnrollment {
 	private String paymentTransactionId;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumns(value = {@JoinColumn(name = "course_id"), @JoinColumn(name = "tutor_id")})
+	@JoinColumn(name = "course_id")
 	private CourseBrochure courseBrochure;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -40,9 +40,8 @@ public class CourseEnrollment {
 		super();
 	}
 
-	public CourseEnrollment(LocalDate enrollmentDate, String paymentTransactionId) {
+	public CourseEnrollment(String paymentTransactionId) {
 		super();
-		this.enrollmentDate = enrollmentDate;
 		this.paymentTransactionId = paymentTransactionId;
 	}
 
@@ -69,12 +68,27 @@ public class CourseEnrollment {
 	public void setPaymentTransactionId(String paymentTransactionId) {
 		this.paymentTransactionId = paymentTransactionId;
 	}
+	
+	public CourseBrochure getCourseBrochure() {
+		return courseBrochure;
+	}
+
+	public void setCourseBrochure(CourseBrochure courseBrochure) {
+		this.courseBrochure = courseBrochure;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
 
 	@Override
 	public String toString() {
 		return "CourseEnrollment [enrollmentId=" + enrollmentId + ", enrollmentDate=" + enrollmentDate
 				+ ", paymentTransactionId=" + paymentTransactionId + "]";
 	}
-	
 	
 }

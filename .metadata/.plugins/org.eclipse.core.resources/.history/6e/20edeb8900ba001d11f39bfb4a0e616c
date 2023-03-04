@@ -1,0 +1,14 @@
+package com.app.pojos;
+
+import java.io.Serializable;
+
+public class CourseBrochureId implements Serializable{
+	private Long courseId;
+	private Long tutorId;
+	
+	public CourseBrochureId() {
+		super();
+	}
+
+
+}

@@ -37,7 +37,7 @@ public class Student extends User{
 	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private StudentEducationalDetails details;
 	
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CourseEnrollment> courseEnrollment=new ArrayList<CourseEnrollment>();
 	
 	@OneToOne
@@ -100,4 +100,8 @@ public class Student extends User{
 		address.setStudent(this);
 	}
 	
+	public void addStudentEnrollment(CourseEnrollment newEnrollment) {
+		courseEnrollment.add(newEnrollment);
+		newEnrollment.setStudent(this);
+	}
 }

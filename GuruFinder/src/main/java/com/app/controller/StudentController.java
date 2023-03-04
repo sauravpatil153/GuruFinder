@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.pojos.Address;
+import com.app.pojos.CourseEnrollment;
 import com.app.pojos.StudentEducationalDetails;
 import com.app.service.AddressService;
 import com.app.service.StudentEduDetailsService;
@@ -43,6 +44,12 @@ public class StudentController {
 		System.out.println(studentId);
 		System.out.println(address);
 		return ResponseEntity.ok(addressService.addStudentAddress(studentId,address));
+	}
+	
+	@PostMapping("/enroll")
+	public ResponseEntity<?> addEnrollment
+	(@RequestParam Long studentId,@RequestParam Long courseId, @RequestBody CourseEnrollment newCourseEnrollment){
+		return ResponseEntity.ok(studService.addEnrollment(studentId, courseId, newCourseEnrollment));
 	}
 
 }

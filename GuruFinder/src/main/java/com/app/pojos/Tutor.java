@@ -48,7 +48,7 @@ public class Tutor extends User{
 	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CourseBrochure> courseBrochures =new ArrayList<CourseBrochure>();
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "login_id")
 	private Login login;
 	
