@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.app.dto.StudentEduDetailsDto;
+import com.app.exception.ResourceNotFoundException;
 import com.app.pojos.CourseBrochure;
 import com.app.pojos.CourseEnrollment;
 import com.app.pojos.Student;
@@ -33,6 +34,19 @@ public class StudentServiceImpl implements StudentService{
 				.orElseThrow();
 		existingCourseBrochure.addCourseEnrollment(newCourseEnrollment);
 		return "Enrollment done succesfully";
+	}
+
+	@Override
+	public Student getStudentDetails(Long studentId) {
+		return studentRepository.findById(studentId).orElseThrow();
+	}
+
+	@Override
+	public Student updateStudentDetails(Student detachedStudent) throws ResourceNotFoundException {
+		if(studentRepository.existsById(detachedStudent.getStudentId())) {
+			return studentRepository.save(detachedStudent);
+		}
+		throw new ResourceNotFoundException("Student not found!!!");
 	}
 
 	

@@ -5,13 +5,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.exception.ResourceNotFoundException;
 import com.app.pojos.Address;
 import com.app.pojos.CourseEnrollment;
+import com.app.pojos.Student;
 import com.app.pojos.StudentEducationalDetails;
 import com.app.service.AddressService;
 import com.app.service.StudentEduDetailsService;
@@ -50,6 +54,20 @@ public class StudentController {
 	public ResponseEntity<?> addEnrollment
 	(@RequestParam Long studentId,@RequestParam Long courseId, @RequestBody CourseEnrollment newCourseEnrollment){
 		return ResponseEntity.ok(studService.addEnrollment(studentId, courseId, newCourseEnrollment));
+	}
+	
+	@GetMapping("/{studentId}")
+	@ResponseBody
+	public Student getStudentDetails(@PathVariable Long studentId) {
+		System.out.println(studentId);
+		// invoke service layer method to get emp details
+		return studService.getStudentDetails(studentId);
+	}
+
+	@PutMapping
+	public ResponseEntity<?> updateStudentDetails(@RequestBody Student detachedStudent) throws ResourceNotFoundException {
+		System.out.println(detachedStudent.getStudentId());// not null
+		return ResponseEntity.ok(studService.updateStudentDetails(detachedStudent));
 	}
 
 }

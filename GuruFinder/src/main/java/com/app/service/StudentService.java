@@ -1,12 +1,14 @@
 package com.app.service;
 
-import org.springframework.web.bind.annotation.RequestParam;
-
+import com.app.exception.ResourceNotFoundException;
 import com.app.pojos.CourseEnrollment;
-import com.app.pojos.StudentEducationalDetails;
-import com.app.repository.CourseEnrollmentRepository;
+import com.app.pojos.Student;
 
 public interface StudentService {
 	 
 	String addEnrollment(Long studentId, Long courseId, CourseEnrollment newCourseEnrollment);
+
+	Student getStudentDetails(Long studentId);
+
+	Student updateStudentDetails(Student detachedStudent) throws ResourceNotFoundException;
 }

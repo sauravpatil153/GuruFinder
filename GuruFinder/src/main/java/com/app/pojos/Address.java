@@ -3,6 +3,7 @@ package com.app.pojos;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,10 +32,10 @@ public class Address {
 	@Column(length = 20, nullable = false)
 	private String pincode;
 	
-	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Student student;
 	
-	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Tutor tutor;
 	
 	public Address() {
