@@ -4,6 +4,7 @@ import GNavbar from "./GNavbar";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import Address from "./Address";
 
 
 const TutorRegisterComponent = () => {
@@ -35,8 +36,22 @@ const TutorRegisterComponent = () => {
     "gender" : newTutor.gender ,"dob" : newTutor.dob, "totalExperience": newTutor.experience,
     "tagline": newTutor.tagline, "summary": newTutor.summary};
     console.log(obj);
-    axios.post("http://localhost:8080/register/tutor",obj)
-    // navigate();
+    axios.post("http://localhost:8080/register/tutor",obj).then((res)=>{
+      console.log(res.data);
+      const jwt =  res.data.token;
+      window.alert("Basic Details Added");
+      const options = {
+        method: 'GET',
+        url: "http://localhost:8080/tutor/detailsbyemail/"+newTutor.email,
+        headers: { Authorization: `Bearer ${jwt}` } 
+      };
+      axios.request(options).then((res)=>{
+        console.log(res.data)
+        sessionStorage.setItem("jwtToken",jwt);
+        sessionStorage.setItem("tutorId",res.data.tutorId);
+      });
+    });
+    navigate();
   }
 
 
@@ -157,9 +172,9 @@ const TutorRegisterComponent = () => {
                           <input
                             className="form-check-input"
                             type="radio"
-                            name="inlineRadioOptions"
-                            id="femaleGender"
-                            value="Male"
+                            name="gender"
+                            id="gender"
+                            value="Female"
                           />
                           <label
                             className="form-check-label"
@@ -173,9 +188,9 @@ const TutorRegisterComponent = () => {
                           <input
                             className="form-check-input"
                             type="radio"
-                            name="inlineRadioOptions"
-                            id="maleGender"
-                            value="Female"
+                            name="gender"
+                            id="gender"
+                            value="Male"
                           />
                           <label
                             className="form-check-label"
@@ -248,7 +263,7 @@ const TutorRegisterComponent = () => {
                           style={{ justifyContent: "center" }}
                           onClick={submitdata}
                         >
-                          Submit form
+                          Next
                         </button>
                       </div>
                     </div>

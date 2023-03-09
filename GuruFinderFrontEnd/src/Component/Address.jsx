@@ -1,7 +1,18 @@
+import { useState } from "react";
 import bgimage from "../Images/timothy-eberly-1mPBkYvbu3w-unsplash.jpg";
 import GNavbar from "./GNavbar";
 
 const Address = () => {
+
+    const [address,setAddress] = useState({
+        addressLine1: "",
+        addressLine2: "",
+        city: "",
+        district: "",
+        state: "",
+        pincode: ""
+    });
+
   return (
     <div>
     <GNavbar/>

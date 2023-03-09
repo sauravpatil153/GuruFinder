@@ -22,6 +22,8 @@ import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tutors")
 public class Tutor extends User{
@@ -35,23 +37,29 @@ public class Tutor extends User{
 	@Column(name = "total_experience", nullable = false)
 	private Integer totalExperience;
 	
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<TutorQualifications> qualifications=new ArrayList<TutorQualifications>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<TutorExperience> experiences=new ArrayList<TutorExperience>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CourseBrochure> courseBrochures =new ArrayList<CourseBrochure>();
 	
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "login_id")
 	private Login login;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "tutor",cascade = CascadeType.ALL,orphanRemoval = true)
 	private TutorVerification verification;
 	

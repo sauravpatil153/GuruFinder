@@ -8,6 +8,7 @@ import Login from './Component/Login';
 import StudentRegister from './Component/StudentRegister';
 import TutorRegister from './Component/TutorRegister';
 import CourseList from './Component/CourseList';
+import Address from './Component/Address';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register/student" element={<StudentRegister/>}></Route>
         <Route path="/register/tutor" element={<TutorRegister/>}></Route>
         <Route path="/courses" element={<CourseList/>}></Route>
+        <Route path="/tutor/address" element={<Address/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
