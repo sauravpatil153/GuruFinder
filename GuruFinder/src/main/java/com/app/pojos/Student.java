@@ -58,8 +58,8 @@ public class Student extends User{
 	}
 
 	public Student(String firstName, String lastName, String mobileNo, String emailId, String password, String gender,
-			byte[] profilePhoto, byte[] idProof, LocalDate dob) {
-		super(firstName, lastName, mobileNo, emailId, password, gender, profilePhoto, idProof, dob);
+			 LocalDate dob) {
+		super(firstName, lastName, mobileNo, emailId, password, gender, dob);
 	}
 	
 	public void addLogin(Login newlogin) {

@@ -44,7 +44,7 @@ public class AuthenticationService {
 	public AuthenticationResponse registerStudent(Student request) {
 		String passwd = passwordEncoder.encode(request.getPassword());
 		Student student = new Student(request.getFirstName(), request.getLastName(), request.getMobileNo(),
-				request.getEmailId(), passwd, request.getGender(), request.getProfilePhoto(), request.getIdProof(),
+				request.getEmailId(), passwd, request.getGender(),
 				request.getDob());
 		Login newLogin = new Login(request.getEmailId(), passwd, UserRoles.ROLE_STUDENT);
 		student.addLogin(newLogin);
@@ -57,7 +57,7 @@ public class AuthenticationService {
 	public AuthenticationResponse registerTutor(Tutor request) {
 		String passwd = passwordEncoder.encode(request.getPassword());
 		Tutor tutor = new Tutor(request.getFirstName(), request.getLastName(), request.getMobileNo(),
-				request.getEmailId(), passwd, request.getGender(), request.getProfilePhoto(), request.getIdProof(),
+				request.getEmailId(), passwd, request.getGender(),
 				request.getDob(),request.getTagline(),request.getSummary(),request.getTotalExperience());
 		Login newLogin = new Login(request.getEmailId(), passwd, UserRoles.ROLE_TUTOR);
 		tutor.addLogin(newLogin);

@@ -22,12 +22,6 @@ public class User{
 	private String password;
 	@Column(length = 10, nullable = false)
 	private String gender;
-	@Lob
-	@Column(name = "profile_photo", nullable = false)
-	private byte[] profilePhoto;
-	@Lob
-	@Column(name = "id_proof", nullable = false)
-	private byte[] idProof;
 	@Column(nullable = false)
 	private LocalDate dob;
 	@Column(name="isActive",nullable = false)
@@ -37,7 +31,7 @@ public class User{
 	}
 
 	public User(String firstName, String lastName, String mobileNo, String emailId, String password, String gender,
-			byte[] profilePhoto, byte[] idProof, LocalDate dob) {
+			 LocalDate dob) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -45,8 +39,6 @@ public class User{
 		this.emailId = emailId;
 		this.password = password;
 		this.gender = gender;
-		this.profilePhoto = profilePhoto;
-		this.idProof = idProof;
 		this.dob = dob;
 		this.isActive = true;
 	}
@@ -98,23 +90,7 @@ public class User{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-	public byte[] getProfilePhoto() {
-		return profilePhoto;
-	}
-
-	public void setProfilePhoto(byte[] profilePhoto) {
-		this.profilePhoto = profilePhoto;
-	}
-
-	public byte[] getIdProof() {
-		return idProof;
-	}
-
-	public void setIdProof(byte[] idProof) {
-		this.idProof = idProof;
-	}
-
+	
 	public LocalDate getDob() {
 		return dob;
 	}
