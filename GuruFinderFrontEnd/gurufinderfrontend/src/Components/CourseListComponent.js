@@ -1,4 +1,5 @@
-
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom"
+import TutorDetailsComponent from "./TutorDetailsComponent"
 
 const CourseListComponent = ({ courseList }) =>{
     return(
@@ -13,7 +14,7 @@ const CourseListComponent = ({ courseList }) =>{
                         <th>Fees</th>
                         <th>Mode</th>
                         <th>Time</th>
-                        <th>Tutor Name</th>
+                        <th>Tutor Details</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -27,7 +28,15 @@ const CourseListComponent = ({ courseList }) =>{
                             <td>{cl.fees}</td>
                             <td>{cl.mode}</td>
                             <td>{cl.time}</td>
-                            <td>Tutor Name</td>
+                            <td>
+                                <BrowserRouter>
+                                    <Link to="/tutor_details">View</Link>
+                                    <Routes>
+                                        <Route path="/tutor_details" component={TutorDetailsComponent}></Route>
+                                    </Routes>
+                                </BrowserRouter>
+
+                            </td>
                             <td><button type="button" className="btn btn-primary">Enroll</button></td>
                         </tr>
                     })}
