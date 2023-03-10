@@ -1,0 +1,16 @@
+package com.app.repository;
+
+import java.util.Optional;
+
+import com.app.pojos.Login;
+import com.app.service.LoginService;
+
+public class LoginServiceImpl implements LoginService {
+
+	@Override
+	public Optional<Login> findByEmailId(String emailId) {
+		
+		return null;
+	}
+
+}

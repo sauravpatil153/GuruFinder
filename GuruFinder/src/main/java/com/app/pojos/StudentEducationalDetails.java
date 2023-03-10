@@ -10,6 +10,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "student_educational_details")
 public class StudentEducationalDetails {
@@ -24,6 +26,7 @@ public class StudentEducationalDetails {
 	@Column(length = 30, nullable = false)
 	private String board;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "student_id",unique = true)
 	private Student student;

@@ -26,9 +26,6 @@ public class TutorQualifications {
 	private String board;
 	@Column(name = "passing_year",nullable = false)
 	private Integer passingYear;
-	@Lob
-	@Column(name = "degree_certificate", nullable = false)
-	private byte[] degreeCertificate;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "tutor_id")
@@ -38,13 +35,12 @@ public class TutorQualifications {
 		super();
 	}
 
-	public TutorQualifications(String stream, String level, String board, Integer passingYear, byte[] degreeCertificate) {
+	public TutorQualifications(String stream, String level, String board, Integer passingYear) {
 		super();
 		this.stream = stream;
 		this.level = level;
 		this.board = board;
 		this.passingYear = passingYear;
-		this.degreeCertificate = degreeCertificate;
 	}
 	
 	public Tutor getTutor() {
@@ -94,14 +90,5 @@ public class TutorQualifications {
 	public void setPassingYear(Integer passingYear) {
 		this.passingYear = passingYear;
 	}
-
-	public byte[] getDegreeCertificate() {
-		return degreeCertificate;
-	}
-
-	public void setDegreeCertificate(byte[] degreeCertificate) {
-		this.degreeCertificate = degreeCertificate;
-	}
-
 
 }

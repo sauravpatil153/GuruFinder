@@ -11,4 +11,7 @@ public interface StudentService {
 	Student getStudentDetails(Long studentId);
 
 	Student updateStudentDetails(Student detachedStudent) throws ResourceNotFoundException;
+	
+	Student getStudentDetails(String emailId);
+
 }

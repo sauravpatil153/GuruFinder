@@ -20,6 +20,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -46,15 +48,19 @@ public class Login implements UserDetails{
 		this.userRole = userRole;
 	}
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Student student;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Tutor tutor;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Admin admin;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "login")
 	private List<Token> tokens;
 	
@@ -120,6 +126,14 @@ public class Login implements UserDetails{
 
 	public void setTutor(Tutor tutor) {
 		this.tutor = tutor;
+	}
+
+	public UserRoles getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRoles userRole) {
+		this.userRole = userRole;
 	}
 
 }

@@ -37,23 +37,23 @@ public class TutorController {
 	@Autowired
 	private TutorService tutorService;
 	
-	@PostMapping("/qualificationdetails")
+	@PostMapping("/qualificationdetails/{tutorId}")
 	public ResponseEntity<?> addTutorQualifications
-	(@RequestParam Long tutorId, @RequestBody TutorQualifications tutorQualifications){
+	(@PathVariable Long tutorId, @RequestBody TutorQualifications tutorQualifications){
 		return ResponseEntity.ok(tutorQualificationsService.addTutorQualifications(tutorId,tutorQualifications));
 	}
 	
-	@PostMapping("/address")
+	@PostMapping("/address/{tutorId}")
 	public ResponseEntity<?> addTutorAddress
-	(@RequestParam Long tutorId, @RequestBody Address address){
+	(@PathVariable Long tutorId, @RequestBody Address address){
 		System.out.println(tutorId);
 		System.out.println(address);
 		return ResponseEntity.ok(addressService.addTutorAddress(tutorId,address));
 	}
 	
-	@PostMapping("/experience")
+	@PostMapping("/experience/{tutorId}")
 	public ResponseEntity<?> addTutorExperience
-	(@RequestParam Long tutorId, @RequestBody TutorExperience tutorExperience){
+	(@PathVariable Long tutorId, @RequestBody TutorExperience tutorExperience){
 		System.out.println(tutorId);
 		System.out.println(tutorExperience);
 		return ResponseEntity.ok(tutorExperienceService.addTutorExperience(tutorId,tutorExperience));

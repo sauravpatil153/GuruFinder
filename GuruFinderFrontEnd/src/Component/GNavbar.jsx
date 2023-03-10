@@ -26,7 +26,7 @@ const GNavbar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <Nav.Link href="#pricing">Contact us</Nav.Link>
+              <Nav.Link href="#pricing">About us</Nav.Link>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <NavDropdown title="Register" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/register/student">
