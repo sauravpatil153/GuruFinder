@@ -1,0 +1,27 @@
+.privacypolicy {
+  background-image: url(../../Images/thought-catalog-505eectW54k-unsplash.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.privacydiv {
+  max-width: 1000px;
+  text-align: left;
+  color: white;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(50, 50, 50);
+  border: 1px solid #ddd;
+  font-size: x-large;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}

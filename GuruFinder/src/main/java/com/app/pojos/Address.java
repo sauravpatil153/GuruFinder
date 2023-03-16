@@ -12,8 +12,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "address")
 public class Address {
@@ -34,11 +32,9 @@ public class Address {
 	@Column(length = 20, nullable = false)
 	private String pincode;
 	
-	@JsonIgnore
 	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Student student;
 	
-	@JsonIgnore
 	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Tutor tutor;
 	

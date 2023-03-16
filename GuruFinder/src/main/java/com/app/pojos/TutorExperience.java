@@ -24,6 +24,9 @@ public class TutorExperience {
 	private String organisationName;
 	@Column(length = 30, nullable = false)
 	private String field;
+	@Lob
+	@Column(name = "experience_certicate", nullable = false)
+	private byte[] experienceCerticate;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "tutor_id")
@@ -33,11 +36,12 @@ public class TutorExperience {
 		super();
 	}
 
-	public TutorExperience(Integer numberOfYears, String organisationName, String field) {
+	public TutorExperience(Integer numberOfYears, String organisationName, String field, byte[] experienceCerticate) {
 		super();
 		this.numberOfYears = numberOfYears;
 		this.organisationName = organisationName;
 		this.field = field;
+		this.experienceCerticate = experienceCerticate;
 	}
 
 	public Long getTutorExperienceId() {
@@ -80,4 +84,11 @@ public class TutorExperience {
 		this.field = field;
 	}
 
+	public byte[] getExperienceCerticate() {
+		return experienceCerticate;
+	}
+
+	public void setExperienceCerticate(byte[] experienceCerticate) {
+		this.experienceCerticate = experienceCerticate;
+	}
 }

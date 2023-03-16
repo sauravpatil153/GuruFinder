@@ -185,7 +185,7 @@ const StudentRegister = () => {
                           style={{ justifyContent: "center" }}
                           onClick={submitdata}
                         >
-                          Submit form
+                          Next
                         </button>
                       </div>
 

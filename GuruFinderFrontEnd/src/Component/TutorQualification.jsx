@@ -72,7 +72,7 @@ const TutorQualification = () => {
                         Tutor Qualification Details
                       </h3>
                       <div className="row">
-                        <div className="form-outline mb-4">
+                        <div className="col-md-6 mb-4">
                           <div className="form-outline">
                             <input
                               type="text"
@@ -90,7 +90,7 @@ const TutorQualification = () => {
                             </label>
                           </div>
                         </div>
-                        <div className="form-outline mb-4">
+                        <div className="col-md-6 mb-4">
                           <div className="form-outline">
                             <input
                               type="text"

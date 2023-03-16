@@ -32,7 +32,7 @@ const TutorAddress = () => {
       pincode: address.pincode,
     };
     console.log(obj);
-    const jwtToken = sessionStorage.getItem("jwtToken");
+    const jwtToken = sessionStorage.getItem("tutorjwtToken");
     const tutorId = sessionStorage.getItem("tutorId");
     const options = {
       method: "POST",

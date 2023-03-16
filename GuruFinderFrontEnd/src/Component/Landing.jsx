@@ -16,8 +16,21 @@ import logocss from "./CSS/logo.css";
 import navbarcss from "./CSS/navbar.css";
 import "./CSS/landing.css";
 import GNavbar from "./GNavbar";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
+  const searchkeyword = (event) => {
+    const keyword = event.target.value;
+    console.log(keyword);
+    localStorage.setItem("keyword", keyword);
+  };
+
+  const navigate = useNavigate();
+
+  const navtocourselist = () => {
+    navigate("/search/course");
+  };
+
   return (
     <div>
       <div className="landing">
@@ -31,17 +44,15 @@ const Landing = () => {
         <br></br>
         <br></br>
         <br></br>
-        <form
-          class="example"
-          action="/action_page.php"
-          style={{ margin: "auto", maxWidth: "60%" }}
-        >
+        <form class="example" style={{ margin: "auto", maxWidth: "60%" }}>
           <input
             type="text"
             placeholder="Enter any subject, stream, level"
-            name="search2"
+            name="search"
+            id="search"
+            onChange={searchkeyword}
           ></input>
-          <button type="submit">
+          <button type="submit" onClick={navtocourselist}>
             <i class="fa fa-search"></i>
           </button>
         </form>
@@ -132,8 +143,9 @@ const Landing = () => {
                   &nbsp;&nbsp;&nbsp;&nbsp; GuruFinder
                 </h6>
                 <p>
-                Technology will never replace great teachers, but in the hands of great teachers, it’s transformational.
-                GuruFinder is here to support you on every step of your educational journey.
+                  Technology will never replace great teachers, but in the hands
+                  of great teachers, it’s transformational. GuruFinder is here
+                  to support you on every step of your educational journey.
                 </p>
               </MDBCol>
 

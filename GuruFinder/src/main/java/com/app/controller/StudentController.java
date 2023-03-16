@@ -2,7 +2,6 @@ package com.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +24,6 @@ import com.app.service.StudentServiceImpl;
 
 @RestController
 @RequestMapping("/student")
-@CrossOrigin
 public class StudentController {
 	@Autowired
 	private StudentService studService;
@@ -36,17 +34,17 @@ public class StudentController {
 	@Autowired
 	private AddressService addressService;
 	
-	@PostMapping("/edudetails/{studentId}")
+	@PostMapping("/edudetails")
 	public ResponseEntity<?> addStudentEducationalDetails
-	(@PathVariable Long studentId, @RequestBody StudentEducationalDetails request){
+	(@RequestParam Long studentId, @RequestBody StudentEducationalDetails request){
 		System.out.println(studentId);
 		System.out.println(request);
 		return ResponseEntity.ok(detailsService.addStudentEducationalDetails(studentId,request));
 	}
 	
-	@PostMapping("/address/{studentId}")
+	@PostMapping("/address")
 	public ResponseEntity<?> addStudentAddress
-	(@PathVariable Long studentId, @RequestBody Address address){
+	(@RequestParam Long studentId, @RequestBody Address address){
 		System.out.println(studentId);
 		System.out.println(address);
 		return ResponseEntity.ok(addressService.addStudentAddress(studentId,address));
@@ -70,13 +68,6 @@ public class StudentController {
 	public ResponseEntity<?> updateStudentDetails(@RequestBody Student detachedStudent) throws ResourceNotFoundException {
 		System.out.println(detachedStudent.getStudentId());// not null
 		return ResponseEntity.ok(studService.updateStudentDetails(detachedStudent));
-	}
-	
-
-	@GetMapping("/detailsbyemail/{emailId}")
-	@ResponseBody
-	public ResponseEntity<?> getStudentDetails(@PathVariable String emailId) {
-		return ResponseEntity.ok(studService.getStudentDetails(emailId));
 	}
 
 }

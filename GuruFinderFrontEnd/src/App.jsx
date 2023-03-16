@@ -16,6 +16,9 @@ import StudentAddress from './Component/StudentAddress';
 import Tutor from './Component/Tutor';
 import Student from './Component/Student';
 import Admin from './Component/Admin';
+import CourseBrochure from './Component/CourseBrochure';
+import PrivacyPolicy from './Component/PrivacyPolicy';
+import Aboutus from './Component/Aboutus';
 
 function App() {
   return (
@@ -26,7 +29,6 @@ function App() {
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register/student" element={<StudentRegister/>}></Route>
         <Route path="/register/tutor" element={<TutorRegister/>}></Route>
-        <Route path="/courses" element={<CourseList/>}></Route>
         <Route path="/tutor/address" element={<TutorAddress/>}></Route>
         <Route path="/tutor/qualificationdetails" element={<TutorQualification/>}></Route>
         <Route path="/tutor/experiences" element={<TutorExperience/>}></Route>
@@ -35,6 +37,10 @@ function App() {
         <Route path="/tutor" element={<Tutor/>}></Route>
         <Route path="/student" element={<Student/>}></Route>
         <Route path="/admin" element={<Admin/>}></Route>
+        <Route path="/addcourse" element={<CourseBrochure/>}></Route>
+        <Route path="/search/course" element={<CourseList/>}></Route>
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>}></Route>
+        <Route path="/aboutus" element={<Aboutus/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>

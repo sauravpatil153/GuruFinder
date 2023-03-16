@@ -70,18 +70,39 @@ const LoginComponent = () => {
           const user = jwtDecode(jwt);
           console.log(user);
           const options = {
-            method: 'GET',
-            url: "http://localhost:8080/authenticate/getlogin/"+user.sub,
-            headers: { Authorization: `Bearer ${jwt}` } 
+            method: "GET",
+            url: "http://localhost:8080/authenticate/getlogin/" + user.sub,
+            headers: { Authorization: `Bearer ${jwt}` },
           };
-          axios.request(options).then((res)=>{
+          axios.request(options).then((res) => {
             const role = res.data.userRole;
-            console.log(role)
+            console.log(role);
             if (role.includes("ROLE_STUDENT")) {
+              let options = {
+                method: "GET",
+                url: "http://localhost:8080/student/detailsbyemail/" + user.sub,
+                headers: { Authorization: `Bearer ${jwt}` },
+              };
+              axios.request(options).then((res) => {
+                console.log(res.data);
+                var studentObj = res.data;
+                sessionStorage.setItem("studentId", studentObj.studentId);
+              });
               sessionStorage.setItem("student", jwt);
+              
               navigate(`/student`);
             }
             if (role.includes("ROLE_TUTOR")) {
+              let options = {
+                method: "GET",
+                url: "http://localhost:8080/tutor/detailsbyemail/" + user.sub,
+                headers: { Authorization: `Bearer ${jwt}` },
+              };
+              axios.request(options).then((res) => {
+                console.log(res.data);
+                var tutorObj = res.data;
+                sessionStorage.setItem("tutorId", tutorObj.tutorId);
+              });
               sessionStorage.setItem("tutor", jwt);
               navigate(`/tutor`);
             }
@@ -89,7 +110,7 @@ const LoginComponent = () => {
               sessionStorage.setItem("admin", jwt);
               navigate(`/admin`);
             }
-          })
+          });
         })
         .catch((err) => {
           swal(

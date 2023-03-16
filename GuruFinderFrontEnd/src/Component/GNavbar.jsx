@@ -4,8 +4,27 @@ import mainlogo from "./Logos/GuruFinder-logos_white1.png";
 import logocss from "./CSS/logo.css";
 import navbarcss from "./CSS/navbar.css";
 import "./CSS/landing.css";
+import { useNavigate } from "react-router-dom";
 
 const GNavbar = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    if (sessionStorage.getItem("tutor") != null) {
+      sessionStorage.removeItem("tutor");
+      sessionStorage.removeItem("tutorId");
+      window.alert("Log out succesfull");
+      navigate("/");
+    } else if (sessionStorage.getItem("student") != null) {
+      sessionStorage.removeItem("student");
+      sessionStorage.removeItem("studentId");
+      window.alert("Log out succesfull");
+      navigate("/");
+    } else {
+      window.alert("Error, you have not logged in");
+    }
+  };
+
   return (
     <div>
       <Navbar
@@ -26,7 +45,7 @@ const GNavbar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <Nav.Link href="#pricing">About us</Nav.Link>
+              <Nav.Link href="/aboutus">About us</Nav.Link>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <NavDropdown title="Register" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/register/student">
@@ -43,7 +62,11 @@ const GNavbar = () => {
             </Nav>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <Nav>
-              <Nav.Link href="#deets">Privacy Policy</Nav.Link>
+              <Nav.Link href="/privacypolicy">Privacy Policy</Nav.Link>
+            </Nav>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <Nav className="content-justify-end">
+              <Nav.Link onClick={logout}>Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

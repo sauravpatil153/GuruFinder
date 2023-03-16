@@ -1,4 +1,4 @@
- package com.app.service;
+package com.app.service;
 
 import javax.transaction.Transactional;
 
@@ -47,11 +47,6 @@ public class StudentServiceImpl implements StudentService{
 			return studentRepository.save(detachedStudent);
 		}
 		throw new ResourceNotFoundException("Student not found!!!");
-	}
-
-	@Override
-	public Student getStudentDetails(String emailId) {
-		return studentRepository.findByEmailId(emailId);
 	}
 
 	
