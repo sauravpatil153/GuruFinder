@@ -1,9 +1,0 @@
-package com.app.service;
-
-import com.app.pojos.StudentEducationalDetails;
-
-public class StudentEduDetailsServiceImpl implements StudentEduDetailsService {
-	public void addStudentEducationalDetails(Long studentId, StudentEducationalDetails request) {
-		
-	}
-}

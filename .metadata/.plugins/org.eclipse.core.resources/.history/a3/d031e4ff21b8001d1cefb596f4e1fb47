@@ -1,5 +1,0 @@
-package com.app.service;
-
-public interface StudentService {
-	void addStudentEducationalDetails(Long studentId);
-}
