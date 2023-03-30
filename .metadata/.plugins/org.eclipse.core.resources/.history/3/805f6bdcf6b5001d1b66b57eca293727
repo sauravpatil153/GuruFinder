@@ -1,0 +1,11 @@
+package com.app.pojos;
+
+import javax.persistence.Column;
+
+public class Login {
+	private Long loginId;
+	@Column(name = "email_id", length = 50, nullable = false, unique = true)
+	private String emailId;
+	@Column(length = 20, nullable = false)
+	private String password;
+}

@@ -1,0 +1,15 @@
+package com.app.dto;
+
+
+public class StudentEduDetailsDto {
+	private String stream;
+	private String level;
+	private String board;
+	private Long studentId;
+	
+	public StudentEduDetailsDto() {
+		super();
+	}
+	
+	
+}

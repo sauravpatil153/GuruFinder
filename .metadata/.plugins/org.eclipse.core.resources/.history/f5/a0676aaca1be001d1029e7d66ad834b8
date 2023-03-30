@@ -1,0 +1,16 @@
+package com.app.service;
+
+import com.app.pojos.Tutor;
+import com.app.repository.TutorRepository;
+
+public class TutorServiceImpl implements TutorService {
+	
+	private TutorRepository tutorRepository;
+
+	@Override
+	public Tutor findTutorByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

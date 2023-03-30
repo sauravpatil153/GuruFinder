@@ -1,0 +1,17 @@
+package com.app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.app.pojos.Address;
+
+public class AddressServiceImpl implements AddressService {
+
+	@Autowired
+	private AddressRepository addressRepository
+	@Override
+	public void addStudentAddress(Long studentId, Address address) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

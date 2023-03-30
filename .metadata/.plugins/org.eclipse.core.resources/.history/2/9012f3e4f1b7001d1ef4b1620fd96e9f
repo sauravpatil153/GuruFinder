@@ -1,0 +1,15 @@
+package com.app.dto;
+
+import java.time.LocalDate;
+
+public class TutorDto {
+	private String firstName;
+	private String lastName;
+	private String mobileNo;
+	private String emailId;
+	private String password;
+	private String gender;
+	private byte[] profilePhoto;
+	private byte[] idProof;
+	private LocalDate dob;
+}

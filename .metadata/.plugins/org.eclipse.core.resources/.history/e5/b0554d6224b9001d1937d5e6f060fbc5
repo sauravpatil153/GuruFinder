@@ -1,0 +1,13 @@
+package com.app.service;
+
+import com.app.pojos.Address;
+
+public class AddressServiceImpl implements AddressService {
+
+	@Override
+	public void addStudentAddress(Long studentId, Address address) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
